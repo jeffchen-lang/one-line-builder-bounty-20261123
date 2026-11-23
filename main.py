@@ -13,6 +13,9 @@ LINE = (
 
 
 def main():
+    # Gate check: the entry must be one sentence of 1-240 characters.
+    assert 1 <= len(LINE) <= 240, f"line is {len(LINE)} chars, must be 1-240"
+    assert "\n" not in LINE, "line must be a single line"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(LINE + "\n")
